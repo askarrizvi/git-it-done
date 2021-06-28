@@ -19,10 +19,10 @@ function getUserRepos(user) {
             alert("Error: GitHub User Not Found");
         }
     })
-    .catch(function(error) {
-        // Notice this `.catch()` getting chained onto the end of the `.then()` method
-        alert("Unable to connect to GitHub");
-      });
+        .catch(function (error) {
+            // Notice this `.catch()` getting chained onto the end of the `.then()` method
+            alert("Unable to connect to GitHub");
+        });
 }
 
 function formSubmitHandler() {
@@ -55,9 +55,10 @@ function displayRepos(repos, searchTerm) {
         // format repo name
         var repoName = repos[i].owner.login + "/" + repos[i].name;
 
-        // create a container for each repo
-        var repoEl = document.createElement("div");
+        // create a link for each repo
+        var repoEl = document.createElement("a");
         repoEl.classList = "list-item flex-row justify-space-between align-center";
+        repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
 
         // create a span element to hold repository name
         var titleEl = document.createElement("span");
